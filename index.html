@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aldridge Financial Technologies — GRC &amp; ISMS Deliverable Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F5F1;
+    --paper-raised:#FFFFFF;
+    --ink:#151A22;
+    --navy:#1F3864;
+    --navy-deep:#12233F;
+    --slate:#44546A;
+    --slate-light:#6B7688;
+    --rule:#D6D3C9;
+    --rule-strong:#B9B6AC;
+    --green-bg:#D9EAD3; --green-fg:#2A6B33;
+    --amber-bg:#FCEBA4; --amber-fg:#7A5B06;
+    --canonical-bg:#1F3864; --canonical-fg:#F5F5F1;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:16px; line-height:1.6;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:0 28px;}
+
+  /* top strip */
+  .topstrip{
+    border-bottom:1px solid var(--rule); padding:18px 0;
+  }
+  .topstrip .row{display:flex; align-items:center; justify-content:space-between;}
+  .brand{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--slate);
+    letter-spacing:.02em;
+  }
+  .gh-link{
+    text-decoration:none; display:inline-block;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--navy);
+    border:1px solid var(--rule-strong); border-radius:3px; padding:6px 12px;
+    background:var(--paper-raised);
+  }
+  .gh-link:hover{border-color:var(--navy);}
+
+  /* hero */
+  .hero{padding:56px 0 0;}
+  .hero h1{
+    font-family:'Source Serif 4',serif; font-weight:600; font-size:40px;
+    line-height:1.18; color:var(--navy-deep); max-width:640px; letter-spacing:-.01em;
+  }
+  .hero .subtitle{
+    font-family:'Source Serif 4',serif; font-style:italic; font-weight:400;
+    font-size:19px; color:var(--slate); margin-top:10px; max-width:560px;
+  }
+
+  .disclaimer{
+    margin-top:28px; border:1px solid var(--rule-strong); border-left:4px solid var(--amber-fg);
+    background:#FBF4DE; padding:14px 18px; font-size:14px; color:#5c4404; max-width:640px;
+    line-height:1.55;
+  }
+  .disclaimer b{color:#3d2e02;}
+
+  /* document control block — the hero moment, borrowed from the deliverables' own cover pages */
+  .control-block{
+    margin-top:36px; border:1px solid var(--rule-strong); background:var(--paper-raised);
+  }
+  .control-block .cb-title{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--slate-light);
+    padding:10px 18px; border-bottom:1px solid var(--rule); background:#EFEEE8;
+  }
+  .cb-grid{display:grid; grid-template-columns:1fr 1fr;}
+  @media (max-width:640px){.cb-grid{grid-template-columns:1fr;}}
+  .cb-cell{
+    padding:16px 18px; border-bottom:1px solid var(--rule); border-right:1px solid var(--rule);
+  }
+  .cb-grid .cb-cell:nth-child(2n){border-right:none;}
+  .cb-cell .k{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--slate-light);
+    text-transform:none; margin-bottom:5px;
+  }
+  .cb-cell .v{font-size:15px; color:var(--ink);}
+  .cb-cell .v.mono{font-family:'IBM Plex Mono',monospace; font-size:13.5px;}
+
+  /* section headings */
+  .section{margin-top:56px;}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    border-bottom:1px solid var(--rule-strong); padding-bottom:10px; margin-bottom:4px;
+  }
+  .section-head h2{
+    font-family:'Source Serif 4',serif; font-weight:600; font-size:22px; color:var(--navy-deep);
+  }
+  .section-head .count{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--slate-light);
+    white-space:nowrap;
+  }
+  .section-note{font-size:14px; color:var(--slate); margin-bottom:18px; max-width:640px;}
+
+  /* register rows */
+  .register{border-top:1px solid var(--rule);}
+  .row{
+    display:grid; grid-template-columns:34px 128px 1fr auto auto; gap:14px; align-items:center;
+    padding:14px 4px; border-bottom:1px solid var(--rule); transition:background .12s ease;
+  }
+  .row:hover{background:#EEEDE6;}
+  .row.no-index{grid-template-columns:128px 1fr auto auto;}
+  .idx{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--slate-light);}
+  .ref{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--navy); white-space:nowrap;}
+  .doc-title{font-size:15.5px; color:var(--ink);}
+  .doc-title a{color:inherit; text-decoration:none;}
+  .doc-title a:hover{text-decoration:underline; color:var(--navy);}
+  .doc-title .fmt{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate-light); margin-left:8px;
+  }
+  .ver{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--slate); white-space:nowrap;}
+  .pill{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 9px; border-radius:2px;
+    white-space:nowrap; text-align:center;
+  }
+  .pill.issued{background:var(--green-bg); color:var(--green-fg);}
+  .pill.draft{background:var(--amber-bg); color:var(--amber-fg);}
+  .pill.canonical{background:var(--canonical-bg); color:var(--canonical-fg);}
+
+  @media (max-width:640px){
+    .row, .row.no-index{grid-template-columns:1fr auto; grid-template-areas:"title title" "ref ver" "pill pill"; row-gap:6px;}
+    .idx{display:none;}
+    .ref{grid-area:ref;}
+    .doc-title{grid-area:title;}
+    .ver{grid-area:ver; justify-self:end;}
+    .pill{grid-area:pill; justify-self:start;}
+  }
+
+  /* what this demonstrates */
+  .demonstrates{
+    margin-top:56px; padding:30px 0 0; border-top:1px solid var(--rule-strong);
+  }
+  .demonstrates h2{
+    font-family:'Source Serif 4',serif; font-weight:600; font-size:22px; color:var(--navy-deep);
+    margin-bottom:18px;
+  }
+  .demo-list{list-style:none;}
+  .demo-list li{
+    display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--rule); font-size:15px;
+  }
+  .demo-list li:last-child{border-bottom:none;}
+  .demo-list .mark{color:var(--navy); font-family:'IBM Plex Mono',monospace; flex-shrink:0;}
+
+  footer{
+    margin-top:56px; padding:28px 0 60px; border-top:1px solid var(--rule);
+    font-size:13px; color:var(--slate-light); font-family:'IBM Plex Mono',monospace;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topstrip">
+    <div class="row">
+      <div class="brand">makpomie.github.io/aldridge-grc-deliverable-demo</div>
+      <a class="gh-link" href="https://github.com/makpomie/aldridge-grc-deliverable-demo" target="_blank" rel="noopener">View source on GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Aldridge Financial Technologies<br>GRC &amp; ISMS Deliverable Set</h1>
+    <p class="subtitle">A fifteen-document portfolio build — policies, an ISO/IEC 27001 gap analysis, a NIST risk assessment, a third-party assessment, and the master prompt used to critique and refit them.</p>
+
+    <div class="disclaimer">
+      <b>Portfolio demonstration.</b> Aldridge Financial Technologies and all named individuals, vendors and figures are fictional, created to demonstrate a GRC and cybersecurity deliverable set. No real organisation's data is represented.
+    </div>
+
+    <div class="control-block">
+      <div class="cb-title">DOCUMENT SET CONTROL</div>
+      <div class="cb-grid">
+        <div class="cb-cell"><div class="k">Documents</div><div class="v">15</div></div>
+        <div class="cb-cell"><div class="k">Prepared</div><div class="v">September 2026</div></div>
+        <div class="cb-cell"><div class="k">Frameworks referenced</div><div class="v mono">ISO/IEC 27001:2022 · NIST SP 800-30 · PCI DSS v4.0 · NYDFS Part 500</div></div>
+        <div class="cb-cell"><div class="k">Status</div><div class="v">3 policy drafts unapproved · Statement of Applicability unsigned · Risk Treatment Plan unsigned</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Read in this order</h2>
+      <span class="count">7 documents</span>
+    </div>
+    <p class="section-note">The context pack is the shared source of truth every other document reads from. Start there.</p>
+    <div class="register">
+      <div class="row">
+        <span class="idx">01</span>
+        <span class="ref">AFT-CTX-01</span>
+        <span class="doc-title"><a href="./Aldridge-Context-Pack.md">Organisation Context Pack<span class="fmt">.md</span></a></span>
+        <span class="ver">v2.3</span>
+        <span class="pill canonical">canonical</span>
+      </div>
+      <div class="row">
+        <span class="idx">02</span>
+        <span class="ref">AFT-ISMS-GAP-01</span>
+        <span class="doc-title"><a href="./ISO27001-Gap-Analysis-Findings.docx">ISO/IEC 27001 Gap Analysis — findings<span class="fmt">.docx</span></a></span>
+        <span class="ver">v2.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row">
+        <span class="idx"></span>
+        <span class="ref">AFT-ISMS-GAP-01</span>
+        <span class="doc-title"><a href="./ISO27001-Gap-Analysis.xlsx">ISO/IEC 27001 Gap Analysis — workbook<span class="fmt">.xlsx</span></a></span>
+        <span class="ver">v2.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row">
+        <span class="idx">03</span>
+        <span class="ref">AFT-ISMS-SOA-01</span>
+        <span class="doc-title"><a href="./ISO27001-Statement-of-Applicability.xlsx">Statement of Applicability<span class="fmt">.xlsx</span></a></span>
+        <span class="ver">v1.0</span>
+        <span class="pill draft">unsigned</span>
+      </div>
+      <div class="row">
+        <span class="idx">04</span>
+        <span class="ref">AFT-ISMS-RSK-01</span>
+        <span class="doc-title"><a href="./NIST-Risk-Assessment.xlsx">Information Security Risk Assessment<span class="fmt">.xlsx</span></a></span>
+        <span class="ver">v2.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row">
+        <span class="idx">05</span>
+        <span class="ref">AFT-TPRM-ASM-01</span>
+        <span class="doc-title"><a href="./TPRM-Vendor-Assessment.xlsx">Third-Party Risk Assessment<span class="fmt">.xlsx</span></a></span>
+        <span class="ver">v2.1</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row">
+        <span class="idx">06</span>
+        <span class="ref">AFT-ISMS-PRG-01</span>
+        <span class="doc-title"><a href="./Security-Awareness-Programme.docx">Security Awareness &amp; Training Programme<span class="fmt">.docx</span></a></span>
+        <span class="ver">v1.2</span>
+        <span class="pill issued">issued</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Policies &amp; standards</h2>
+      <span class="count">6 documents</span>
+    </div>
+    <p class="section-note">Not a sequence, so left unnumbered. Cited throughout the assessments above.</p>
+    <div class="register">
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-POL-01</span>
+        <span class="doc-title"><a href="./Acceptable-Use-Policy.docx">Acceptable Use Policy<span class="fmt">.docx</span></a></span>
+        <span class="ver">v3.0</span>
+        <span class="pill draft">unapproved</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-POL-02</span>
+        <span class="doc-title"><a href="./Incident-Response-Policy.docx">Incident Response Policy<span class="fmt">.docx</span></a></span>
+        <span class="ver">v3.1</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-POL-03</span>
+        <span class="doc-title"><a href="./Access-Control-Policy.docx">Access Control Policy<span class="fmt">.docx</span></a></span>
+        <span class="ver">v3.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-POL-04</span>
+        <span class="doc-title"><a href="./Data-Classification-Policy.docx">Data Classification &amp; Handling Policy<span class="fmt">.docx</span></a></span>
+        <span class="ver">v3.0</span>
+        <span class="pill draft">unapproved</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-POL-09</span>
+        <span class="doc-title"><a href="./Third-Party-Risk-Management-Policy.docx">Third-Party Risk Management Policy<span class="fmt">.docx</span></a></span>
+        <span class="ver">v2.0</span>
+        <span class="pill draft">unapproved</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">AFT-ISMS-STD-02</span>
+        <span class="doc-title"><a href="./Authentication-Credential-Standard.docx">Authentication &amp; Credential Standard<span class="fmt">.docx</span></a></span>
+        <span class="ver">v1.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Method</h2>
+      <span class="count">2 documents</span>
+    </div>
+    <div class="register">
+      <div class="row no-index">
+        <span class="ref">—</span>
+        <span class="doc-title"><a href="./GRC-Agent-Master-Prompt.md">GRC Agent — Master System Prompt<span class="fmt">.md</span></a></span>
+        <span class="ver">v1.0</span>
+        <span class="pill issued">issued</span>
+      </div>
+      <div class="row no-index">
+        <span class="ref">—</span>
+        <span class="doc-title"><a href="./MANIFEST.md">Manifest &amp; reading order<span class="fmt">.md</span></a></span>
+        <span class="ver">—</span>
+        <span class="pill issued">index</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="demonstrates">
+    <h2>What this demonstrates</h2>
+    <ul class="demo-list">
+      <li><span class="mark">—</span> A shared context artefact that every deliverable reads from and writes back to, so figures reconcile across documents instead of drifting.</li>
+      <li><span class="mark">—</span> Evidence, effort, cost and dependency tracking attached to every finding, not just a maturity rating asserted without a basis.</li>
+      <li><span class="mark">—</span> A capacity check that surfaces a remediation plan is not deliverable as assigned, before anyone approves it.</li>
+      <li><span class="mark">—</span> An expert critique pass that scored the first draft against practitioner standards, then drove a second, more rigorous build.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>Prepared for portfolio demonstration purposes only.</span>
+    <span>Matthew Akpomie · FCA, CISA, CISM</span>
+  </footer>
+</div>
+
+</body>
+</html>
